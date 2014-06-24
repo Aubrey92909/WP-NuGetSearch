@@ -47,18 +47,32 @@ namespace NuGetSearch.ViewModels
         #endregion
 
 
+        public string DesignTitle
+        {
+            get { return _DesignTitleLocator(this).Value; }
+            set { _DesignTitleLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string DesignTitle Setup
+        protected Property<string> _DesignTitle = new Property<string> { LocatorFunc = _DesignTitleLocator };
+        static Func<BindableBase, ValueContainer<string>> _DesignTitleLocator = RegisterContainerLocator<string>("DesignTitle", model => model.Initialize("DesignTitle", ref model._DesignTitle, ref _DesignTitleLocator, _DesignTitleDefaultValueFactory));
+        static Func<string> _DesignTitleDefaultValueFactory = () => { return default(string); };
+        #endregion
+
+
         public MainPage_Model()
         {
             if (IsInDesignMode)
             {
-                
+                //DesignTitle = "test";
             }
 
-            NuGetSearcher = new NuGetOrgSearcher();
-            InitDataTask = GetMostPopularPackages();
+            DesignTitle = "test1";
 
             MostPopularPackages = new ObservableCollection<V2FeedPackage>();
             MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
+
+            NuGetSearcher = new NuGetOrgSearcher();
+            InitDataTask = GetMostPopularPackages();
         }
 
         public async Task GetMostPopularPackages(int pageIndex = 1)

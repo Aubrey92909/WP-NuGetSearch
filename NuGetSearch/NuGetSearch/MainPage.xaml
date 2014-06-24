@@ -22,7 +22,7 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource DesignVM}">
 
-        <phone:Pivot>
+        <phone:Pivot Title="{Binding DesignTitle}">
             <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular">
                 <ScrollViewer>
                     <userControls:PagedPackageList Height="560" VerticalAlignment="Top"
