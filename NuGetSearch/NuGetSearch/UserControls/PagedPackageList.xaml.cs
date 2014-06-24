@@ -89,7 +89,7 @@ namespace NuGetSearch.UserControls
                     if (e.ItemKind == LongListSelectorItemKind.Item)
                     {
                         var package = e.Container.Content as V2FeedPackage;
-                        if (null != package && package.Equals(source[source.Count - 1]))
+                        if (null != package && package.Equals(source[source.Count -1]))
                         {
                             var nextPageIndex = PageIndex++;
                             Debug.WriteLine("Loading Page {0}", nextPageIndex);

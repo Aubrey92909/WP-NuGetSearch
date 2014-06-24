@@ -63,6 +63,8 @@ namespace NuGetSearch.ViewModels
 
         public async Task GetMostPopularPackages(int pageIndex = 1)
         {
+            IsUIBusy = true;
+            Message = "Getting Data...";
             var apiResponse = await NuGetSearcher.GetMostPopularPackagesAsync(pageIndex);
             var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
             if (response != null && response.IsSuccess)
@@ -72,10 +74,14 @@ namespace NuGetSearch.ViewModels
                     MostPopularPackages.Add(v2FeedPackage);
                 }
             }
+            Message = string.Empty;
+            IsUIBusy = false;
         }
 
         public async Task GetMicrosoftDotNetPackages(int pageIndex = 1)
         {
+            IsUIBusy = true;
+            Message = "Getting Data...";
             var apiResponse = await NuGetSearcher.GetTopMicrosoftDotNetPackagesAsync(pageIndex);
             var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
             if (response != null && response.IsSuccess)
@@ -85,6 +91,8 @@ namespace NuGetSearch.ViewModels
                     MicrosoftDotNetPackages.Add(v2FeedPackage);
                 }
             }
+            Message = string.Empty;
+            IsUIBusy = false;
         }
     }
 

@@ -44,5 +44,15 @@ namespace NuGetSearch
             var vm = ViewModel as MainPage_Model;
             if (vm != null) await vm.GetMostPopularPackages(pageindex);
         }
+
+        private void MicrosoftDotNetPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        {
+            
+        }
+
+        private void MicrosoftDotNetPagedPackageList_OnLoadNextPage(object sender, int pageindex)
+        {
+            
+        }
     }
 }

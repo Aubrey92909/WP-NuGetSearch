@@ -10,26 +10,28 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
-    <Grid x:Name="LayoutRoot">
-        <ScrollViewer>
-            <Controls:LongListSelector x:Name="PackageListSelector" 
-                                       ItemsSource="{Binding ElementName=PagedPackagesListUserControl, Path=PackageItemsSource}"
-                                       ItemRealized="PackageListSelector_OnItemRealized">
-                <Controls:LongListSelector.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+    <Controls:LongListSelector 
+        x:Name="PackageListSelector" 
+        ItemsSource="{Binding ElementName=PagedPackagesListUserControl, Path=PackageItemsSource}"
+        IsGroupingEnabled="False"
+        ItemRealized="PackageListSelector_OnItemRealized">
+        <Controls:LongListSelector.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Column="0" Text="{Binding LastUpdated}" />
-                            <TextBlock Grid.Column="0" Text="{Binding DownloadCount}" />
-                            <TextBlock Grid.Column="1" Text="{Binding Title}" />
-                        </Grid>
-                    </DataTemplate>
-                </Controls:LongListSelector.ItemTemplate>
-            </Controls:LongListSelector>
-        </ScrollViewer>
-    </Grid>
+                    <TextBlock Grid.Column="0" Text="{Binding LastUpdated}" />
+                    <TextBlock Grid.Column="0" Text="{Binding DownloadCount}" />
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="{Binding Title}" FontSize="24" />
+                        <TextBlock Text="{Binding Summary}" FontSize="20" />
+                    </StackPanel>
+
+                </Grid>
+            </DataTemplate>
+        </Controls:LongListSelector.ItemTemplate>
+    </Controls:LongListSelector>
 </UserControl>
