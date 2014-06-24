@@ -54,5 +54,25 @@ namespace NuGetSearch
         {
             
         }
+
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MenuAbout_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MenuReview_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -20,12 +20,39 @@
         <vm:MainPage_Model x:Key="DesignVM" />
     </FrameworkElement.Resources>
 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="about" Click="MenuAbout_Click" />
+                <shell:ApplicationBarMenuItem Text="review" Click="MenuReview_Click" />
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.magnify.png" 
+                Text="search" 
+                Click="BtnSearch_Click"/>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.cog.png" 
+                Text="settings" 
+                Click="BtnSettings_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
     <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource DesignVM}">
 
-        <phone:Pivot Title="{Binding DesignTitle}">
+        <phone:Pivot>
+            <phone:Pivot.Title>
+                <TextBlock Text="NUGET SEARCH" FontSize="22" FontFamily="Segoe WP Light"/>
+            </phone:Pivot.Title>
+            
+            <phone:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="56" FontFamily="Segoe WP Light" />
+                </DataTemplate>
+            </phone:Pivot.HeaderTemplate>
+            
             <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular">
                 <ScrollViewer>
-                    <userControls:PagedPackageList Height="560" VerticalAlignment="Top"
+                    <userControls:PagedPackageList MaxHeight="550" VerticalAlignment="Top"
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding MostPopularPackages}" 
                 SelectedPackageChanged="MostPopularPagedPackageList_OnSelectedPackageChanged" 

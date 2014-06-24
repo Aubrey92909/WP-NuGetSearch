@@ -61,18 +61,48 @@ namespace NuGetSearch.ViewModels
 
         public MainPage_Model()
         {
-            if (IsInDesignMode)
-            {
-                //DesignTitle = "test";
-            }
-
-            DesignTitle = "test1";
-
             MostPopularPackages = new ObservableCollection<V2FeedPackage>();
             MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
-
             NuGetSearcher = new NuGetOrgSearcher();
-            InitDataTask = GetMostPopularPackages();
+
+            if (IsInDesignMode)
+            {
+                MostPopularPackages.Add(new V2FeedPackage()
+                {
+                    Summary = "Microsoft Hope Of Human! A quick brown fox jumped over the lazy dog.",
+                    Title = "Microsoft.Humanity.Hope",
+                    LastUpdated = DateTime.Now,
+                    DownloadCount = 8888
+                });
+
+                MostPopularPackages.Add(new V2FeedPackage()
+                {
+                    Summary = "Fuck the fucking fuckers.",
+                    Title = "Linustd.Is.Adobe",
+                    LastUpdated = DateTime.Now.AddDays(-1),
+                    DownloadCount = 250
+                });
+
+                MostPopularPackages.Add(new V2FeedPackage()
+                {
+                    Summary = "This is a fucking long text which is very long and you can not see it within one single fucking line. Why the text is this diao yang? Because I need to test if the UI is good when given such a long fucking text.",
+                    Title = "Text.Is.So.Long",
+                    LastUpdated = DateTime.Now.AddDays(-2),
+                    DownloadCount = 250
+                });
+
+                MostPopularPackages.Add(new V2FeedPackage()
+                {
+                    Summary = "hello world!",
+                    Title = "Why.This.Package.Has.A.Long.Title",
+                    LastUpdated = DateTime.Now.AddDays(-3),
+                    DownloadCount = 250
+                });
+            }
+            else
+            {
+                InitDataTask = GetMostPopularPackages();
+            }
         }
 
         public async Task GetMostPopularPackages(int pageIndex = 1)
