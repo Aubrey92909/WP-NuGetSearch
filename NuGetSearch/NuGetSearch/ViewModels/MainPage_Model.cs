@@ -1,5 +1,6 @@
 ﻿using System.Reactive;
 using System.Reactive.Linq;
+using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MVVMSidekick.Reactive;
@@ -12,97 +13,79 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using NuGetApiClientLib;
+using NuGetApiClientLib.NuGetService;
 
 namespace NuGetSearch.ViewModels
 {
-
-    //[DataContract]
-    public class MainPage_Model : ViewModelBase<MainPage_Model>
+    public class MainPage_Model : NuGetSearchVMBase<MainPage_Model>
     {
-        // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property propcmd for command
-        // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性 propcmd 输入命令
+        public Task InitDataTask { get; set; }
+
+        public NuGetOrgSearcher NuGetSearcher { get; private set; }
+
+        public ObservableCollection<V2FeedPackage> MostPopularPackages
+        {
+            get { return _MostPopularPackagesLocator(this).Value; }
+            set { _MostPopularPackagesLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property ObservableCollection<V2FeedPackage> MostPopularPackages Setup
+        protected Property<ObservableCollection<V2FeedPackage>> _MostPopularPackages = new Property<ObservableCollection<V2FeedPackage>> { LocatorFunc = _MostPopularPackagesLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackage>>> _MostPopularPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackage>>("MostPopularPackages", model => model.Initialize("MostPopularPackages", ref model._MostPopularPackages, ref _MostPopularPackagesLocator, _MostPopularPackagesDefaultValueFactory));
+        static Func<ObservableCollection<V2FeedPackage>> _MostPopularPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackage>); };
+        #endregion
+
+        public ObservableCollection<V2FeedPackage> MicrosoftDotNetPackages
+        {
+            get { return _MicrosoftDotNetPackagesLocator(this).Value; }
+            set { _MicrosoftDotNetPackagesLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property ObservableCollection<V2FeedPackage> MicrosoftDotNetPackages Setup
+        protected Property<ObservableCollection<V2FeedPackage>> _MicrosoftDotNetPackages = new Property<ObservableCollection<V2FeedPackage>> { LocatorFunc = _MicrosoftDotNetPackagesLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackage>>> _MicrosoftDotNetPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackage>>("MicrosoftDotNetPackages", model => model.Initialize("MicrosoftDotNetPackages", ref model._MicrosoftDotNetPackages, ref _MicrosoftDotNetPackagesLocator, _MicrosoftDotNetPackagesDefaultValueFactory));
+        static Func<ObservableCollection<V2FeedPackage>> _MicrosoftDotNetPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackage>); };
+        #endregion
+
 
         public MainPage_Model()
         {
             if (IsInDesignMode)
             {
-                Title = "Title is a little different in Design mode";
+                
             }
 
+            NuGetSearcher = new NuGetOrgSearcher();
+            InitDataTask = GetMostPopularPackages();
+
+            MostPopularPackages = new ObservableCollection<V2FeedPackage>();
+            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
         }
 
-        //propvm tab tab string tab Title
-        public String Title
+        public async Task GetMostPopularPackages(int pageIndex = 1)
         {
-            get { return _TitleLocator(this).Value; }
-            set { _TitleLocator(this).SetValueAndTryNotify(value); }
+            var apiResponse = await NuGetSearcher.GetMostPopularPackagesAsync(pageIndex);
+            var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
+            if (response != null && response.IsSuccess)
+            {
+                foreach (var v2FeedPackage in response.Item)
+                {
+                    MostPopularPackages.Add(v2FeedPackage);
+                }
+            }
         }
-        #region Property String Title Setup
-        protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<String> _TitleDefaultValueFactory = () => "Title is Here";
-        #endregion
 
-
-        #region Life Time Event Handling
-
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
-
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
-
-        #endregion
-
-
+        public async Task GetMicrosoftDotNetPackages(int pageIndex = 1)
+        {
+            var apiResponse = await NuGetSearcher.GetTopMicrosoftDotNetPackagesAsync(pageIndex);
+            var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
+            if (response != null && response.IsSuccess)
+            {
+                foreach (var v2FeedPackage in response.Item)
+                {
+                    MicrosoftDotNetPackages.Add(v2FeedPackage);
+                }
+            }
+        }
     }
 
 }

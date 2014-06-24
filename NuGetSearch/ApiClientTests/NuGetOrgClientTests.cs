@@ -31,7 +31,7 @@ namespace ApiClientTests
         public async Task GetMostPopularPackages_Test()
         {
             var nugetOrgFeed = new NuGetOrgSearcher();
-            var result = await nugetOrgFeed.GetMostPopularPackages(1);
+            var result = await nugetOrgFeed.GetMostPopularPackagesAsync(1);
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Response<IEnumerable<V2FeedPackage>>));
@@ -47,7 +47,7 @@ namespace ApiClientTests
         public async Task GetTopMicrosoftDotNetPackages_Test()
         {
             var nugetOrgFeed = new NuGetOrgSearcher();
-            var result = await nugetOrgFeed.GetTopMicrosoftDotNetPackages(1);
+            var result = await nugetOrgFeed.GetTopMicrosoftDotNetPackagesAsync(1);
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Response<IEnumerable<V2FeedPackage>>));
@@ -74,8 +74,8 @@ namespace ApiClientTests
         {
             var nugetOrgFeed = new NuGetOrgSearcher();
 
-            var page1Task = nugetOrgFeed.GetMostPopularPackages(1);
-            var page2Task = nugetOrgFeed.GetMostPopularPackages(2);
+            var page1Task = nugetOrgFeed.GetMostPopularPackagesAsync(1);
+            var page2Task = nugetOrgFeed.GetMostPopularPackagesAsync(2);
 
             var page1Result = await page1Task;
             var page2Result = await page2Task;

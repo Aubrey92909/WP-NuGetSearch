@@ -33,5 +33,16 @@ namespace NuGetSearch
         {
             InitializeComponent();
         }
+
+        private void MostPopularPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        {
+
+        }
+
+        private async void MostPopularPagedPackageList_OnLoadNextPage(object sender, int pageindex)
+        {
+            var vm = ViewModel as MainPage_Model;
+            if (vm != null) await vm.GetMostPopularPackages(pageindex);
+        }
     }
 }
