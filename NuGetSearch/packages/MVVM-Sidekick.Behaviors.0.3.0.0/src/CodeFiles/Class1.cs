@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NuGetSearch.Core
+namespace MVVMSidekick.Behaviors_Wpa81
 {
-    public class Utils
+    public class Class1
     {
     }
 }
