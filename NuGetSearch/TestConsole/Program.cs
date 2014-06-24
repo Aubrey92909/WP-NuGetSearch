@@ -13,8 +13,8 @@ namespace TestConsole
 
         static void Main(string[] args)
         {
-            var nugetClient = new NuGetApiClient("https://www.nuget.org/api/v2/");
-            initTask = nugetClient.SetPageSize(30).GetDataAsync("Edi.", 1);
+            var nugetOrgFeed = new NuGetOrgSearcher();
+            initTask = nugetOrgFeed.SearchPackagesByTermAsync("Edi.", 1);
             Console.ReadKey();
         }
     }
