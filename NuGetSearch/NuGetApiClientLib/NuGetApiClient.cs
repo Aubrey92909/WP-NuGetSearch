@@ -59,6 +59,11 @@ namespace NuGetApiClientLib
                     { "includePrerelease","false"}
                 };
 
+                if (pageIndex < 1)
+                {
+                    pageIndex = 1;
+                }
+
                 int startRow = (pageIndex - 1) * PageSize;
                 var nquery = context.CreateQuery<V2FeedPackage>("Search")
                                     .OrderByDescending(p => p.DownloadCount)
@@ -66,7 +71,11 @@ namespace NuGetApiClientLib
                                     .Take(PageSize);
 
                 var query = (DataServiceQuery<V2FeedPackage>)nquery;
-                query = queryOptions.Aggregate(query, (current, pair) => current.AddQueryOption(pair.Key, pair.Value));
+                if (queryOptions.Any())
+                {
+                    query = queryOptions.Aggregate(query, (current, pair) => current.AddQueryOption(pair.Key, pair.Value));
+                }
+
                 var taskFactory = new TaskFactory<IEnumerable<V2FeedPackage>>();
                 var result = await taskFactory.FromAsync(query.BeginExecute(null, null), query.EndExecute);
                 var packages = result.ToList();
