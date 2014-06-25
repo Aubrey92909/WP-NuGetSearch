@@ -34,7 +34,7 @@ namespace NuGetSearch
                 if (AddOrUpdateValue(IsIncludePreReleaseSettingKeyName, value))
                 {
                     Save();
-                    NotifyPropertyChanged("IsGroupByPinYinSetting");
+                    NotifyPropertyChanged("IsIncludePreReleaseSetting");
                 }
             }
         }

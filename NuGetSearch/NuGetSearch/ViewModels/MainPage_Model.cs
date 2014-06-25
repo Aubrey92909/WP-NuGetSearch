@@ -46,27 +46,10 @@ namespace NuGetSearch.ViewModels
         static Func<ObservableCollection<V2FeedPackage>> _MicrosoftDotNetPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackage>); };
         #endregion
 
-
-        public string DesignTitle
-        {
-            get { return _DesignTitleLocator(this).Value; }
-            set { _DesignTitleLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property string DesignTitle Setup
-        protected Property<string> _DesignTitle = new Property<string> { LocatorFunc = _DesignTitleLocator };
-        static Func<BindableBase, ValueContainer<string>> _DesignTitleLocator = RegisterContainerLocator<string>("DesignTitle", model => model.Initialize("DesignTitle", ref model._DesignTitle, ref _DesignTitleLocator, _DesignTitleDefaultValueFactory));
-        static Func<string> _DesignTitleDefaultValueFactory = () => { return default(string); };
-        #endregion
-
-
         public MainPage_Model()
         {
             MostPopularPackages = new ObservableCollection<V2FeedPackage>();
             MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
-            NuGetSearcher = new NuGetOrgSearcher()
-            {
-                IncludePreRelease = new AppSettings().IsIncludePreReleaseSetting
-            };
 
             if (IsInDesignMode)
             {
@@ -104,6 +87,10 @@ namespace NuGetSearch.ViewModels
             }
             else
             {
+                NuGetSearcher = new NuGetOrgSearcher()
+                {
+                    IncludePreRelease = new AppSettings().IsIncludePreReleaseSetting
+                };
                 InitDataTask = GetMostPopularPackages();
             }
         }

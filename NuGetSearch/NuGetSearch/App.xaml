@@ -13,6 +13,9 @@
         <Style x:Key="ControlStyle" TargetType="Control">
             <Setter Property="FontFamily" Value="Segoe WP Light"/>
         </Style>
+        <Style x:Key="PivotItemStyle" TargetType="phone:PivotItem">
+            <Setter Property="Margin" Value="17,15,17,0" />
+        </Style>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

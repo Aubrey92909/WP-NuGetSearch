@@ -50,7 +50,7 @@
                 </DataTemplate>
             </phone:Pivot.HeaderTemplate>
             
-            <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular">
+            <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
                     <userControls:PagedPackageList MaxHeight="550" VerticalAlignment="Top"
                 VM="{StaticResource DesignVM}" 
@@ -59,7 +59,7 @@
                 LoadNextPage="MostPopularPagedPackageList_OnLoadNextPage" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem Header="Microsoft &amp; .NET" x:Name="PvtMsDotNet">
+            <phone:PivotItem Header="Microsoft &amp; .NET" x:Name="PvtMsDotNet" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
                     <userControls:PagedPackageList 
                 VM="{StaticResource DesignVM}" 
