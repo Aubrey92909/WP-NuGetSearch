@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGetApiClientLib", "NuGetA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientTests", "ApiClientTests\ApiClientTests.csproj", "{C4A62CC8-3BEA-4CCA-B479-3D4DD874AAD5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{809B6381-D0A7-4FD3-AA44-8AC0D734A22D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPClient", "WPClient", "{136149BE-F846-435C-B6F7-473B37A2500F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,5 +67,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1484683-8729-4BC4-9EEA-7F5CF58E01FA} = {136149BE-F846-435C-B6F7-473B37A2500F}
+		{128D5730-DFB2-4531-8252-2C2203C6626B} = {136149BE-F846-435C-B6F7-473B37A2500F}
+		{C4A62CC8-3BEA-4CCA-B479-3D4DD874AAD5} = {809B6381-D0A7-4FD3-AA44-8AC0D734A22D}
 	EndGlobalSection
 EndGlobal

@@ -23,7 +23,7 @@
         </toolkit:NavigationInTransition>
     </toolkit:TransitionService.NavigationInTransition>
 
-    <Grid x:Name="LayoutRoot" Background="White" DataContext="{StaticResource DesignVM}" >
+    <Grid x:Name="LayoutRoot" DataContext="{StaticResource DesignVM}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -39,7 +39,10 @@
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="21,0,21,0">
-            
+            <toolkit:ToggleSwitch 
+                Content="Include Pre-Release"
+                Margin="-12,-10"
+                IsChecked="{Binding Source={StaticResource AppSettings}, Path=IsIncludePreReleaseSetting, Mode=TwoWay}" />
         </Grid>
     </Grid>
 
