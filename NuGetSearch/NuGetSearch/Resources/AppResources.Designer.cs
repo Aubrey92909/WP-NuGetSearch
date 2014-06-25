@@ -79,7 +79,7 @@ namespace NuGetSearch.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MY APPLICATION.
+        ///   Looks up a localized string similar to NUGET SEARCH.
         /// </summary>
         public static string ApplicationTitle {
             get {

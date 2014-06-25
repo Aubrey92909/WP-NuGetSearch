@@ -6,13 +6,67 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"    
     xmlns:vm="clr-namespace:NuGetSearch.ViewModels" 
-    xmlns:mvvm="clr-namespace:MVVMSidekick.Views;assembly=MVVMSidekick_Wp8">
+    xmlns:mvvm="clr-namespace:MVVMSidekick.Views;assembly=MVVMSidekick_Wp8"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:userControls="clr-namespace:NuGetSearch.UserControls">
     <FrameworkElement.Resources>
         <vm:Search_Model x:Key="DesignVM" />
     </FrameworkElement.Resources>
 
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.magnify.png" 
+                Text="search" 
+                Click="BtnSearch_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
     <Grid x:Name="LayoutRoot" Background="White" DataContext="{StaticResource DesignVM}" >
-     
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,18">
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
+                       FontFamily="Segoe WP Light"
+                       Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="21,0,21,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBox Height="72" 
+                     Margin="-12,-10,-12,10"
+                     Text="{Binding Keyword, Mode=TwoWay}"/>
+            
+            <ScrollViewer Grid.Row="1">
+                <userControls:PagedPackageList MaxHeight="560" VerticalAlignment="Top"
+                VM="{StaticResource DesignVM}" 
+                PackageItemsSource="{Binding SearchResults}" 
+                SelectedPackageChanged="SearchResultPagedPackageList_OnSelectedPackageChanged" 
+                LoadNextPage="SearchResultPagedPackageList_OnLoadNextPage" />
+            </ScrollViewer>
+        </Grid>
+
+
     </Grid>
 
 </mvvm:MVVMPage>

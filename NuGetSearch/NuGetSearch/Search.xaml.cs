@@ -37,7 +37,20 @@ namespace NuGetSearch
         }
 
 
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            
+        }
 
+        private void SearchResultPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        {
+            
+        }
+
+        private void SearchResultPagedPackageList_OnLoadNextPage(object sender, int pageindex)
+        {
+            
+        }
     }
 }
 
