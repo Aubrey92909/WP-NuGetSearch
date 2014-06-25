@@ -52,7 +52,7 @@
             
             <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
-                    <userControls:PagedPackageList MaxHeight="550" VerticalAlignment="Top"
+                    <userControls:PagedPackageList MaxHeight="560" VerticalAlignment="Top"
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding MostPopularPackages}" 
                 SelectedPackageChanged="MostPopularPagedPackageList_OnSelectedPackageChanged" 

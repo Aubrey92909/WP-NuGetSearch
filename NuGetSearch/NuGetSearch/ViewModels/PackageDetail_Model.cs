@@ -33,7 +33,15 @@ namespace NuGetSearch.ViewModels
         {
             if (IsInDesignMode)
             {
-                
+                CurrentPackage = new V2FeedPackage()
+                {
+                    Summary = "Microsoft Hope Of Human! A quick brown fox jumped over the lazy dog.",
+                    Title = "Microsoft's Humanity Hope",
+                    Id = "Microsoft.Humanity.Hope",
+                    LastUpdated = DateTime.Now,
+                    DownloadCount = 8888,
+                    Version = "4.0.1231.30853"
+                };
             }
         }
 
