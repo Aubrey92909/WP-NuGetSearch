@@ -104,6 +104,7 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="PackageDetail.xaml.cs">
       <DependentUpon>PackageDetail.xaml</DependentUpon>
     </Compile>
