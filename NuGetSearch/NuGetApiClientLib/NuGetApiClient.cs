@@ -49,14 +49,14 @@ namespace NuGetApiClientLib
         }
 
 
-        public async Task<Response<IEnumerable<V2FeedPackage>>> GetDataAsync(string searchTerm, int pageIndex)
+        public async Task<Response<IEnumerable<V2FeedPackage>>> GetDataAsync(string searchTerm, int pageIndex, bool includePreRelease = false)
         {
             try
             {
                 IDictionary<string, object> queryOptions = new Dictionary<string, object> {
-                    { "filter", "IsLatestVersion"},
-                    { "searchTerm", "'" + UrlEncodeOdataParameter(searchTerm) + "'"},
-                    { "includePrerelease","false"}
+                    { "filter", "IsLatestVersion" },
+                    { "searchTerm", "'" + UrlEncodeOdataParameter(searchTerm) + "'" },
+                    { "includePrerelease", includePreRelease.ToString().ToLower() }
                 };
 
                 if (pageIndex < 1)

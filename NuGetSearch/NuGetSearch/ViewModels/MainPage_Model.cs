@@ -63,7 +63,10 @@ namespace NuGetSearch.ViewModels
         {
             MostPopularPackages = new ObservableCollection<V2FeedPackage>();
             MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
-            NuGetSearcher = new NuGetOrgSearcher();
+            NuGetSearcher = new NuGetOrgSearcher()
+            {
+                IncludePreRelease = new AppSettings().IsIncludePreReleaseSetting
+            };
 
             if (IsInDesignMode)
             {
