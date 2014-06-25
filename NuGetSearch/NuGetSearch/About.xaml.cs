@@ -37,7 +37,10 @@ namespace NuGetSearch
         }
 
 
-
+        private void BtnReview_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
