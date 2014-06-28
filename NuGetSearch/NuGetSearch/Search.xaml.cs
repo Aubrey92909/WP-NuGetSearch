@@ -1,59 +1,45 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
-using MVVMSidekick.ViewModels;
+﻿using System;
 using MVVMSidekick.Views;
-using MVVMSidekick.Reactive;
-using MVVMSidekick.Services;
-using MVVMSidekick.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Windows.Navigation;
 using NuGetSearch.ViewModels;
+
 namespace NuGetSearch
 {
     public partial class Search : MVVMPage
     {
-
-
-
         public Search()
             : base(null)
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
+
         public Search(Search_Model model)
             : base(model)
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+        private async void BtnSearch_Click(object sender, EventArgs e)
         {
-            
+            var vm = ViewModel as Search_Model;
+            if (null != vm)
+            {
+                await vm.DoSearch();
+            }
         }
 
         private void SearchResultPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
         {
-            
+
         }
 
-        private void SearchResultPagedPackageList_OnLoadNextPage(object sender, int pageindex)
+        private async void SearchResultPagedPackageList_OnLoadNextPage(object sender, int pageindex)
         {
-            
+            var vm = ViewModel as Search_Model;
+            if (null != vm)
+            {
+                await vm.DoSearch(pageindex);
+            }
         }
     }
 }
-
-
-
-
