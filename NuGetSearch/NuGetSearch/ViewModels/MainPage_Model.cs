@@ -24,6 +24,17 @@ namespace NuGetSearch.ViewModels
 
         public NuGetOrgSearcher NuGetSearcher { get; private set; }
 
+        public bool IsMsDotNetDataInitialized
+        {
+            get { return _IsMsDotNetDataInitializedLocator(this).Value; }
+            set { _IsMsDotNetDataInitializedLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property bool IsMsDotNetDataInitialized Setup
+        protected Property<bool> _IsMsDotNetDataInitialized = new Property<bool> { LocatorFunc = _IsMsDotNetDataInitializedLocator };
+        static Func<BindableBase, ValueContainer<bool>> _IsMsDotNetDataInitializedLocator = RegisterContainerLocator<bool>("IsMsDotNetDataInitialized", model => model.Initialize("IsMsDotNetDataInitialized", ref model._IsMsDotNetDataInitialized, ref _IsMsDotNetDataInitializedLocator, _IsMsDotNetDataInitializedDefaultValueFactory));
+        static Func<bool> _IsMsDotNetDataInitializedDefaultValueFactory = () => { return default(bool); };
+        #endregion
+
         public ObservableCollection<V2FeedPackage> MostPopularPackages
         {
             get { return _MostPopularPackagesLocator(this).Value; }
@@ -124,6 +135,8 @@ namespace NuGetSearch.ViewModels
                 {
                     MicrosoftDotNetPackages.Add(v2FeedPackage);
                 }
+
+                IsMsDotNetDataInitialized = true;
             }
             Message = string.Empty;
             IsUIBusy = false;

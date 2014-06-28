@@ -60,9 +60,16 @@ namespace NuGetSearch
             Utils.GoToReview();
         }
 
-        private void MainPivot_OnLoadedPivotItem(object sender, PivotItemEventArgs e)
+        private async void Pivot_OnLoadingPivotItem(object sender, PivotItemEventArgs e)
         {
-            
+            if (e.Item == PvtMsDotNet)
+            {
+                var vm = ViewModel as MainPage_Model;
+                if (null != vm && !vm.IsMsDotNetDataInitialized)
+                {
+                    await vm.GetMicrosoftDotNetPackages();
+                }
+            }
         }
     }
 }

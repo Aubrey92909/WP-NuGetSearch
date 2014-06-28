@@ -58,7 +58,7 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource DesignVM}">
 
-        <phone:Pivot LoadedPivotItem="MainPivot_OnLoadedPivotItem">
+        <phone:Pivot LoadingPivotItem="Pivot_OnLoadingPivotItem">
             <phone:Pivot.Title>
                 <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light"/>
             </phone:Pivot.Title>

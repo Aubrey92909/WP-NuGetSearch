@@ -14,5 +14,15 @@ namespace NuGetSearch
             var rev = new MarketplaceReviewTask();
             rev.Show();
         }
+
+        public static string GetAppVersion()
+        {
+            return new Utils().GetAssemblyVersion().ToString();
+        }
+
+        private Version GetAssemblyVersion()
+        {
+            return GetType().Assembly.GetName().Version;
+        }
     }
 }
