@@ -1,4 +1,7 @@
-﻿using Microsoft.Phone.Controls;
+﻿using System.Windows;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Net.NetworkInformation;
+using Microsoft.Phone.Tasks;
 using MVVMSidekick.Views;
 using System;
 using NuGetSearch.ViewModels;
@@ -17,7 +20,28 @@ namespace NuGetSearch
             : base(model)
         {
             InitializeComponent();
+            CheckNetwork();
         }
+
+        private void CheckNetwork()
+        {
+            if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+            {
+                var result = MessageBox.Show(
+                    NetworkInterface.NetworkInterfaceType + "Your network blow up.",
+                    "NO CONNECTION",
+                    MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    var connectionSettingsTask = new ConnectionSettingsTask
+                    {
+                        ConnectionSettingsType = ConnectionSettingsType.WiFi
+                    };
+                    connectionSettingsTask.Show();
+                }
+            }
+        }
+
 
         private void MostPopularPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
         {
