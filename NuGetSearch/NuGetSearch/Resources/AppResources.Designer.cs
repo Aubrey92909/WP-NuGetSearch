@@ -61,6 +61,33 @@ namespace NuGetSearch.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This app is not nuget.org official app. It provides you the ability to search nuget.org without opening IE on your Windows Phone..
+        /// </summary>
+        public static string About_App_Content {
+            get {
+                return ResourceManager.GetString("About-App-Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edi Wang (webmaster of diaosbook.com). professional ASP.NET developer, newbie in Windows Phone..
+        /// </summary>
+        public static string About_Author_Content {
+            get {
+                return ResourceManager.GetString("About-Author-Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to add.
         /// </summary>
         public static string AppBarButtonText {
@@ -88,6 +115,60 @@ namespace NuGetSearch.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DEPENDENCIES.
+        /// </summary>
+        public static string Denpendencies {
+            get {
+                return ResourceManager.GetString("Denpendencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Pre-Release.
+        /// </summary>
+        public static string Include_Pre_Release {
+            get {
+                return ResourceManager.GetString("Include-Pre-Release", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LAST UPDATED.
+        /// </summary>
+        public static string LastUpdated {
+            get {
+                return ResourceManager.GetString("LastUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft &amp; .NET.
+        /// </summary>
+        public static string MicrosoftDotNetTitle {
+            get {
+                return ResourceManager.GetString("MicrosoftDotNetTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Popular.
+        /// </summary>
+        public static string MostPopularTitle {
+            get {
+                return ResourceManager.GetString("MostPopularTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LeftToRight.
         /// </summary>
         public static string ResourceFlowDirection {
@@ -102,6 +183,42 @@ namespace NuGetSearch.Resources {
         public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to review.
+        /// </summary>
+        public static string Review {
+            get {
+                return ResourceManager.GetString("Review", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Third Party Libs.
+        /// </summary>
+        public static string ThirdPartyLibs {
+            get {
+                return ResourceManager.GetString("ThirdPartyLibs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TOTAL DOWNLOADS.
+        /// </summary>
+        public static string TotalDownloads {
+            get {
+                return ResourceManager.GetString("TotalDownloads", resourceCulture);
             }
         }
     }

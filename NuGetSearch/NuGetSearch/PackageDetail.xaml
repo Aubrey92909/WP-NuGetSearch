@@ -64,7 +64,7 @@
                         <TextBlock Text="{Binding CurrentPackage.DownloadCount}" 
                                FontSize="36"
                                FontFamily="Segoe WP Light"/>
-                        <TextBlock Text="TOTAL DOWNLOADS" 
+                        <TextBlock Text="{Binding Path=LocalizedResources.TotalDownloads, Source={StaticResource LocalizedStrings}}" 
                                    FontSize="22"
                                    Foreground="#666666"
                                    FontFamily="Segoe WP Light"/>
@@ -80,7 +80,7 @@
                         <TextBlock Text="{Binding CurrentPackage.LastUpdated, StringFormat='yyyy-MM-dd'}" 
                                FontSize="36"
                                FontFamily="Segoe WP Light"/>
-                        <TextBlock Text="LAST UPDATED" 
+                        <TextBlock Text="{Binding Path=LocalizedResources.LastUpdated, Source={StaticResource LocalizedStrings}}" 
                                    FontSize="22"
                                    Foreground="#666666"
                                    FontFamily="Segoe WP Light"/>
@@ -104,7 +104,7 @@
             </Border>
             
             <StackPanel Grid.Row="3">
-                <TextBlock Text="DEPENDENCIES" 
+                <TextBlock Text="{Binding Path=LocalizedResources.Denpendencies, Source={StaticResource LocalizedStrings}}" 
                            FontSize="22"
                            FontFamily="Segoe WP Light"
                            Foreground="#888888"

@@ -1,6 +1,5 @@
 ﻿<mvvm:MVVMPage
     x:Class="NuGetSearch.MainPage"
-
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -70,7 +69,7 @@
                 </DataTemplate>
             </phone:Pivot.HeaderTemplate>
             
-            <phone:PivotItem Header="Most Popular" x:Name="PvtMostPopular" Style="{StaticResource PivotItemStyle}">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.MostPopularTitle, Source={StaticResource LocalizedStrings}}" x:Name="PvtMostPopular" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
                     <userControls:PagedPackageList MaxHeight="560" VerticalAlignment="Top"
                 VM="{StaticResource DesignVM}" 
@@ -79,7 +78,7 @@
                 LoadNextPage="MostPopularPagedPackageList_OnLoadNextPage" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem Header="Microsoft &amp; .NET" x:Name="PvtMsDotNet" Style="{StaticResource PivotItemStyle}">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.MicrosoftDotNetTitle, Source={StaticResource LocalizedStrings}}" x:Name="PvtMsDotNet" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
                     <userControls:PagedPackageList 
                 VM="{StaticResource DesignVM}" 
@@ -89,8 +88,6 @@
                 </ScrollViewer>
             </phone:PivotItem>
         </phone:Pivot>
-
-
     </Grid>
 
 </mvvm:MVVMPage>

@@ -134,4 +134,43 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>NUGET SEARCH</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>review</value>
+  </data>
+  <data name="MostPopularTitle" xml:space="preserve">
+    <value>Most Popular</value>
+  </data>
+  <data name="MicrosoftDotNetTitle" xml:space="preserve">
+    <value>Microsoft &amp; .NET</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="ThirdPartyLibs" xml:space="preserve">
+    <value>Third Party Libs</value>
+  </data>
+  <data name="About-Author-Content" xml:space="preserve">
+    <value>Edi Wang (webmaster of diaosbook.com). professional ASP.NET developer, newbie in Windows Phone.</value>
+  </data>
+  <data name="About-App-Content" xml:space="preserve">
+    <value>This app is not nuget.org official app. It provides you the ability to search nuget.org without opening IE on your Windows Phone.</value>
+  </data>
+  <data name="LastUpdated" xml:space="preserve">
+    <value>LAST UPDATED</value>
+  </data>
+  <data name="TotalDownloads" xml:space="preserve">
+    <value>TOTAL DOWNLOADS</value>
+  </data>
+  <data name="Denpendencies" xml:space="preserve">
+    <value>DEPENDENCIES</value>
+  </data>
+  <data name="Include-Pre-Release" xml:space="preserve">
+    <value>Include Pre-Release</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>settings</value>
+  </data>
 </root>

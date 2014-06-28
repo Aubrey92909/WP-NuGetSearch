@@ -44,7 +44,7 @@
             <TextBlock Text="{Binding Version}" 
                        FontFamily="Segoe WP Light"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="about" Margin="9,-7,0,0" 
+            <TextBlock Text="{Binding Path=LocalizedResources.About, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" 
                        FontFamily="Segoe WP Light"
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
@@ -60,9 +60,9 @@
                            Margin="0,0,0,20"
                            TextWrapping="Wrap"
                            FontFamily="Segoe WP Light"
-                           Text="This app is not nuget.org official app. It provides you the ability to search nuget.org without opening IE on your Windows Phone."/>
+                           Text="{Binding Path=LocalizedResources.About_App_Content, Source={StaticResource LocalizedStrings}}"/>
 
-                <TextBlock Text="Author"
+                <TextBlock Text="{Binding Path=LocalizedResources.Author, Source={StaticResource LocalizedStrings}}"
                            Margin="0,0,0,10"
                            FontFamily="Segoe WP"
                            FontSize="24"/>
@@ -71,9 +71,9 @@
                            Margin="0,0,0,20"
                            TextWrapping="Wrap"
                            FontFamily="Segoe WP Light"
-                           Text="Edi Wang (webmaster of diaosbook.com). professional ASP.NET developer, newbie in Windows Phone."/>
+                           Text="{Binding Path=LocalizedResources.About_Author_Content, Source={StaticResource LocalizedStrings}}"/>
 
-                <TextBlock Text="Third Party Libs"
+                <TextBlock Text="{Binding Path=LocalizedResources.ThirdPartyLibs, Source={StaticResource LocalizedStrings}}"
                            Margin="0,0,0,10"
                            FontFamily="Segoe WP"
                            FontSize="24"/>

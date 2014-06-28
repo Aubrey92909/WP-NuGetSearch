@@ -30,17 +30,17 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,18">
-            <TextBlock Text="NUGET SEARCH" 
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" 
                        FontFamily="Segoe WP Light"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="settings" Margin="9,-7,0,0" 
+            <TextBlock Text="{Binding Path=LocalizedResources.Settings, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" 
                        FontFamily="Segoe WP Light"
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="21,0,21,0">
             <toolkit:ToggleSwitch 
-                Content="Include Pre-Release"
+                Content="{Binding Path=LocalizedResources.Include_Pre_Release, Source={StaticResource LocalizedStrings}}"
                 Margin="-12,-10"
                 IsChecked="{Binding Source={StaticResource AppSettings}, Path=IsIncludePreReleaseSetting, Mode=TwoWay}" />
         </Grid>
