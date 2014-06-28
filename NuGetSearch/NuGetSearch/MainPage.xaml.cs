@@ -16,6 +16,7 @@ namespace NuGetSearch
             : base(null)
         {
             InitializeComponent();
+            CheckNetwork();
         }
 
         public MainPage(MainPage_Model model)
@@ -30,7 +31,7 @@ namespace NuGetSearch
             if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
             {
                 var result = MessageBox.Show(
-                    NetworkInterface.NetworkInterfaceType + "Your network blow up.",
+                    NetworkInterface.NetworkInterfaceType + " network is unavailable.",
                     "NO CONNECTION",
                     MessageBoxButton.OKCancel);
                 if (result == MessageBoxResult.OK)

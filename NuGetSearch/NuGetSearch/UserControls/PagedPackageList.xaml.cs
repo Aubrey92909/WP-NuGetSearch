@@ -60,7 +60,7 @@ namespace NuGetSearch.UserControls
             object selected = ((LongListSelector)(sender)).SelectedItem;
             if (null != selected)
             {
-                string pid = ((V2FeedPackage)(selected)).Id;
+                string pid = ((V2FeedPackageEx)(selected)).Id;
 
                 if (SelectedPackageChanged != null)
                 {
@@ -81,7 +81,7 @@ namespace NuGetSearch.UserControls
                 {
                     if (e.ItemKind == LongListSelectorItemKind.Item)
                     {
-                        var package = e.Container.Content as V2FeedPackage;
+                        var package = e.Container.Content as V2FeedPackageEx;
                         if (null != package && package.Equals(source[source.Count -1]))
                         {
                             var nextPageIndex = ++PageIndex;
