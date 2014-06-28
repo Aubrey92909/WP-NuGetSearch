@@ -127,6 +127,7 @@
     <Compile Include="UserControls\PagedPackageList.xaml.cs">
       <DependentUpon>PagedPackageList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils.cs" />
     <Compile Include="ViewModels\About_Model.cs" />
     <Compile Include="ViewModels\MainPage_Model.cs">
     </Compile>
