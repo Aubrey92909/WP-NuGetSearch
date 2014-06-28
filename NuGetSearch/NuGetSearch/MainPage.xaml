@@ -84,7 +84,7 @@
             </phone:PivotItem>
             <phone:PivotItem Header="{Binding Path=LocalizedResources.MicrosoftDotNetTitle, Source={StaticResource LocalizedStrings}}" x:Name="PvtMsDotNet" Style="{StaticResource PivotItemStyle}">
                 <ScrollViewer>
-                    <userControls:PagedPackageList 
+                    <userControls:PagedPackageList MaxHeight="560" 
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding MicrosoftDotNetPackages}" 
                 SelectedPackageChanged="MicrosoftDotNetPagedPackageList_OnSelectedPackageChanged" 

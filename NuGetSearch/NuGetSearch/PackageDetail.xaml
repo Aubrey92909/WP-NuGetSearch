@@ -25,7 +25,32 @@
         </toolkit:NavigationInTransition>
     </toolkit:TransitionService.NavigationInTransition>
 
-    <phone:PhoneApplicationPage.ApplicationBar>        <shell:ApplicationBar>            <shell:ApplicationBar.MenuItems>                <shell:ApplicationBarMenuItem Text="share with email..." Click="MenuShareEmail_Click" />                <shell:ApplicationBarMenuItem Text="report abuse..." Click="MenuReportAbuse_Click" />                <shell:ApplicationBarMenuItem Text="contact owners..." Click="MenuContactOwners_Click" />            </shell:ApplicationBar.MenuItems>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.ie.png"                 Text="nuget page"                 Click="BtnNuGetPage_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.browser.png"                 Text="project site"                 Click="BtnProjectSite_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.page.check.png"                 Text="license"                 Click="BtnLicense_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.qr.png"                 IsEnabled="False"                Text="share qr"                 Click="BtnShareQR_Click"/>        </shell:ApplicationBar>    </phone:PhoneApplicationPage.ApplicationBar>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="share with email..." Click="MenuShareEmail_Click" />
+                <shell:ApplicationBarMenuItem Text="report abuse..." Click="MenuReportAbuse_Click" />
+                <shell:ApplicationBarMenuItem Text="contact owners..." Click="MenuContactOwners_Click" />
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.ie.png" 
+                Text="nuget page" 
+                Click="BtnNuGetPage_Click"/>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.browser.png" 
+                Text="project site" 
+                Click="BtnProjectSite_Click"/>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.page.check.png" 
+                Text="license" 
+                Click="BtnLicense_Click"/>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.qr.png" 
+                IsEnabled="False"
+                Text="share qr" 
+                Click="BtnShareQR_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 
     <Grid x:Name="LayoutRoot" DataContext="{StaticResource DesignVM}" >
@@ -35,87 +60,108 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,18">
-            <TextBlock Text="{Binding CurrentPackage.Version}" 
+            <TextBlock Text="{Binding CurrentPackage.NormalizedVersion}" 
                        FontFamily="Segoe WP Light"
                        FontSize="22"
                        Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding CurrentPackage.Title}" Margin="9,-7,0,0" 
+            <TextBlock Text="{Binding CurrentPackage.DisplayTitle}" Margin="9,-7,0,0" 
                        FontFamily="Segoe WP Light"
                        FontSize="50"
                        TextWrapping="Wrap"
                        Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="21,0,21,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1" >
+            <Grid x:Name="ContentPanel" Margin="21,0,21,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Margin="0,0,0,10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" 
+                    <Border Grid.Column="0" 
                         BorderBrush="#0072BC"
                         BorderThickness="5,0,0,0"
                         Padding="5,0,0,5"
                         Background="#F2F2F2">
-                    <StackPanel>
-                        <TextBlock Text="{Binding CurrentPackage.DownloadCount}" 
+                        <StackPanel>
+                            <TextBlock Text="{Binding CurrentPackage.DownloadCount}" 
                                FontSize="36"
                                FontFamily="Segoe WP Light"/>
-                        <TextBlock Text="{Binding Path=LocalizedResources.TotalDownloads, Source={StaticResource LocalizedStrings}}" 
+                            <TextBlock Text="{Binding Path=LocalizedResources.TotalDownloads, Source={StaticResource LocalizedStrings}}" 
                                    FontSize="22"
                                    Foreground="#666666"
                                    FontFamily="Segoe WP Light"/>
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
 
-                <Border Grid.Column="1" 
+                    <Border Grid.Column="1" 
                         BorderBrush="#0072BC"
                         BorderThickness="5,0,0,0"
                         Padding="5,0,0,5"
                         Background="#F2F2F2">
-                    <StackPanel>
-                        <TextBlock Text="{Binding CurrentPackage.LastUpdated, StringFormat='yyyy-MM-dd'}" 
+                        <StackPanel>
+                            <TextBlock Text="{Binding CurrentPackage.Created, StringFormat='yyyy-MM-dd'}" 
                                FontSize="36"
                                FontFamily="Segoe WP Light"/>
-                        <TextBlock Text="{Binding Path=LocalizedResources.LastUpdated, Source={StaticResource LocalizedStrings}}" 
+                            <TextBlock Text="{Binding Path=LocalizedResources.LastUpdated, Source={StaticResource LocalizedStrings}}" 
                                    FontSize="22"
                                    Foreground="#666666"
                                    FontFamily="Segoe WP Light"/>
-                    </StackPanel>
-                </Border>
-            </Grid>
-            
-            <Border Grid.Row="1" Background="#0072BC" Padding="15,3,10,3" Margin="0,0,0,10">
-                <TextBlock Text="{Binding CurrentPackage.Id, StringFormat='PM> Install-Package {0}'}"
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Border Grid.Row="1" Background="#0072BC" Padding="15,3,10,3" Margin="0,0,0,10">
+                    <TextBlock Text="{Binding CurrentPackage.Id, StringFormat='PM> Install-Package {0}'}"
                            Foreground="White"
                            FontFamily="Consolas"
                            TextWrapping="Wrap"
                            FontSize="22" />
-            </Border>
-            
-            <Border Grid.Row="2" BorderBrush="#009933" BorderThickness="5,0,0,0" Padding="10,0,0,0">
-                <TextBlock Text="{Binding CurrentPackage.Summary}"
+                </Border>
+
+                <Border Grid.Row="2" BorderBrush="#009933" BorderThickness="5,0,0,0" Padding="10,0,0,0">
+                    <TextBlock Text="{Binding CurrentPackage.DisplaySummary}"
                            FontSize="22"
                            TextWrapping="Wrap"
                            Foreground="#888888"/>
-            </Border>
-            
-            <StackPanel Grid.Row="3">
-                <TextBlock Text="{Binding Path=LocalizedResources.Denpendencies, Source={StaticResource LocalizedStrings}}" 
+                </Border>
+
+                <StackPanel Grid.Row="3">
+                    <TextBlock Text="{Binding Path=LocalizedResources.Denpendencies, Source={StaticResource LocalizedStrings}}" 
                            FontSize="22"
                            FontFamily="Segoe WP Light"
                            Foreground="#888888"
                            Margin="0,0,0,10" />
-            </StackPanel>
-        </Grid>
+
+                    <ItemsControl ItemsSource="{Binding CurrentPackage.DependenciesList}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#993300" BorderThickness="5,0,0,0" Padding="10,0,0,0" Margin="0,0,0,10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Id}" 
+                                           FontSize="20"
+                                           FontFamily="Segoe WP Light"
+                                                   Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Version}" 
+                                           FontSize="20"
+                                           FontFamily="Segoe WP Light"/>
+                                    </StackPanel>
+
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 
 </mvvm:MVVMPage>
