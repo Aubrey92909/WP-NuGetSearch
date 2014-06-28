@@ -44,7 +44,7 @@ namespace NuGetSearch.UserControls
         public event LoadNextPageEventHandler LoadNextPage;
         public delegate void LoadNextPageEventHandler(object sender, int pageIndex);
 
-        public delegate void SelectedPackageChangedEventHandler(object sender, string stationName);
+        public delegate void SelectedPackageChangedEventHandler(object sender, string packageId);
         public event SelectedPackageChangedEventHandler SelectedPackageChanged;
 
         #endregion

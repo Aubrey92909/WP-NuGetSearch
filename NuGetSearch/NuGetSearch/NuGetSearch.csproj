@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="NavigationExtensions.cs" />
     <Compile Include="PackageDetail.xaml.cs">
       <DependentUpon>PackageDetail.xaml</DependentUpon>
     </Compile>

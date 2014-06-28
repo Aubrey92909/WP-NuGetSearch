@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Phone.Controls;
@@ -6,6 +7,7 @@ using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Tasks;
 using MVVMSidekick.Views;
 using System;
+using NuGetApiClientLib.NuGetService;
 using NuGetSearch.ViewModels;
 
 namespace NuGetSearch
@@ -46,9 +48,14 @@ namespace NuGetSearch
         }
 
 
-        private void MostPopularPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        private void MostPopularPagedPackageList_OnSelectedPackageChanged(object sender, string packageId)
         {
-
+            var vm = ViewModel as MainPage_Model;
+            if (null != vm)
+            {
+                var pkg = vm.MostPopularPackages.FirstOrDefault(p => p.Id == packageId);
+                NavigationService.Navigate(new Uri("/PackageDetail.xaml?id=" + packageId, UriKind.Relative), packageId, pkg);
+            }
         }
 
         private async void MostPopularPagedPackageList_OnLoadNextPage(object sender, int pageindex)
@@ -57,9 +64,14 @@ namespace NuGetSearch
             if (vm != null) await vm.GetMostPopularPackages(pageindex);
         }
 
-        private void MicrosoftDotNetPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        private void MicrosoftDotNetPagedPackageList_OnSelectedPackageChanged(object sender, string packageId)
         {
-            
+            var vm = ViewModel as MainPage_Model;
+            if (null != vm)
+            {
+                var pkg = vm.MicrosoftDotNetPackages.FirstOrDefault(p => p.Id == packageId);
+                NavigationService.Navigate(new Uri("/PackageDetail.xaml?id=" + packageId, UriKind.Relative), packageId, pkg);
+            }
         }
 
         private async void MicrosoftDotNetPagedPackageList_OnLoadNextPage(object sender, int pageindex)

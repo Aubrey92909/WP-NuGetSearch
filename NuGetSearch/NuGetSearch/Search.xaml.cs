@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using MVVMSidekick.Views;
 using NuGetSearch.ViewModels;
 
@@ -28,9 +29,14 @@ namespace NuGetSearch
             }
         }
 
-        private void SearchResultPagedPackageList_OnSelectedPackageChanged(object sender, string stationname)
+        private void SearchResultPagedPackageList_OnSelectedPackageChanged(object sender, string packageId)
         {
-
+            var vm = ViewModel as MainPage_Model;
+            if (null != vm)
+            {
+                var pkg = vm.MicrosoftDotNetPackages.FirstOrDefault(p => p.Id == packageId);
+                NavigationService.Navigate(new Uri("/PackageDetail.xaml?id=" + packageId, UriKind.Relative), packageId, pkg);
+            }
         }
 
         private async void SearchResultPagedPackageList_OnLoadNextPage(object sender, int pageindex)

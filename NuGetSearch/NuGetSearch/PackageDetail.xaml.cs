@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using NuGetApiClientLib.NuGetService;
 using NuGetSearch.ViewModels;
 namespace NuGetSearch
 {
@@ -36,6 +37,21 @@ namespace NuGetSearch
             this.InitializeComponent();
         }
 
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            string packageId;
+            if (NavigationContext.QueryString.TryGetValue("id", out packageId))
+            {
+                var person = (V2FeedPackageEx)NavigationContext.GetNavigationData(packageId);
+                MessageBox.Show(person.DisplayTitle);
+                // todo: init data in VM
+
+                NavigationContext.Remove(packageId);
+            }
+        }
 
         private void BtnNuGetPage_Click(object sender, EventArgs e)
         {
