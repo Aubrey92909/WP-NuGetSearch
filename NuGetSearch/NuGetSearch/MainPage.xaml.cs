@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Net.NetworkInformation;
 using Microsoft.Phone.Tasks;
@@ -59,9 +61,10 @@ namespace NuGetSearch
             
         }
 
-        private void MicrosoftDotNetPagedPackageList_OnLoadNextPage(object sender, int pageindex)
+        private async void MicrosoftDotNetPagedPackageList_OnLoadNextPage(object sender, int pageindex)
         {
-            
+            var vm = ViewModel as MainPage_Model;
+            if (vm != null) await vm.GetMicrosoftDotNetPackages(pageindex);
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
@@ -96,9 +99,22 @@ namespace NuGetSearch
             }
         }
 
-        private void BtnRefresh_Click(object sender, EventArgs e)
+        private async void BtnRefresh_Click(object sender, EventArgs e)
         {
-            
+            var vm = ViewModel as MainPage_Model;
+            if (vm != null)
+            {
+                vm.IsMsDotNetDataInitialized = false;
+                vm.ClearData();
+
+                var tasks = new List<Task>
+                {
+                    vm.GetMostPopularPackages(), 
+                    vm.GetMicrosoftDotNetPackages()
+                };
+
+                await Task.WhenAll(tasks);
+            }
         }
     }
 }

@@ -106,6 +106,12 @@ namespace NuGetSearch.ViewModels
             }
         }
 
+        public void ClearData()
+        {
+            MostPopularPackages = new ObservableCollection<V2FeedPackage>();
+            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
+        }
+
         public async Task GetMostPopularPackages(int pageIndex = 1)
         {
             IsUIBusy = true;
