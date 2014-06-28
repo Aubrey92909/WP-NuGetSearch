@@ -4,8 +4,8 @@
   <Languages xmlns="">
     <Language code="en-US" />
   </Languages>
-  <App xmlns="" ProductID="{55fb0b00-0391-4ed7-b329-95ae96b43927}" Title="NuGetSearch" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="NuGetSearch author" Description="Sample description" Publisher="NuGetSearch" PublisherID="{6b431416-291c-4f15-9ca9-3a3f4ae11754}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{55fb0b00-0391-4ed7-b329-95ae96b43927}" Title="NuGet Search" RuntimeType="Silverlight" Version="2.0.0.0" Genre="apps.normal" Author="汪宇杰" Description="Search Packages on NuGet.org" Publisher="汪宇杰" PublisherID="{6b431416-291c-4f15-9ca9-3a3f4ae11754}">
+    <IconPath IsRelative="true" IsResource="false">Assets\NuGetSearch-300.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
@@ -16,20 +16,23 @@
     <Tokens>
       <PrimaryToken TokenID="NuGetSearchToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\NuGetSearch-300-Trans.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>NuGetSearch</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\NuGetSearch-300-Trans.png</BackgroundImageURI>
+          <Title>NuGet Search</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
           </BackBackgroundImageURI>
           <BackTitle>
           </BackTitle>
+          <LargeBackgroundImageURI IsRelative="true" IsResource="false">Assets\NuGetSearch-Logo-Wide.png</LargeBackgroundImageURI>
+          <LargeBackContent />
+          <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
+          </LargeBackBackgroundImageURI>
           <DeviceLockImageURI>
           </DeviceLockImageURI>
-          <HasLarge>
-          </HasLarge>
+          <HasLarge>True</HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
