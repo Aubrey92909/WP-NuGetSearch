@@ -43,8 +43,12 @@
         <shell:ApplicationBar>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="about" Click="MenuAbout_Click" />
-                <shell:ApplicationBarMenuItem Text="review" Click="MenuReview_Click" />
+                <shell:ApplicationBarMenuItem Text="review..." Click="MenuReview_Click" />
             </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Assets/appbar/appbar.refresh.png" 
+                Text="refresh" 
+                Click="BtnRefresh_Click"/>
             <shell:ApplicationBarIconButton 
                 IconUri="/Assets/appbar/appbar.magnify.png" 
                 Text="search" 

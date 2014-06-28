@@ -7,7 +7,9 @@
     mc:Ignorable="d"    
     xmlns:vm="clr-namespace:NuGetSearch.ViewModels" 
     xmlns:mvvm="clr-namespace:MVVMSidekick.Views;assembly=MVVMSidekick_Wp8"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
     <FrameworkElement.Resources>
         <vm:PackageDetail_Model x:Key="DesignVM" />
     </FrameworkElement.Resources>
@@ -22,6 +24,9 @@
             </toolkit:NavigationInTransition.Forward>
         </toolkit:NavigationInTransition>
     </toolkit:TransitionService.NavigationInTransition>
+
+    <phone:PhoneApplicationPage.ApplicationBar>        <shell:ApplicationBar>            <shell:ApplicationBar.MenuItems>                <shell:ApplicationBarMenuItem Text="report abuse..." Click="MenuReportAbuse_Click" />                <shell:ApplicationBarMenuItem Text="contact owners..." Click="MenuContactOwners_Click" />            </shell:ApplicationBar.MenuItems>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.ie.png"                 Text="nuget page"                 Click="BtnNuGetPage_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.browser.png"                 Text="project site"                 Click="BtnProjectSite_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.page.check.png"                 Text="license"                 Click="BtnLicense_Click"/>            <shell:ApplicationBarIconButton                 IconUri="/Assets/appbar/appbar.qr.png"                 Text="share qr"                 Click="BtnShareQR_Click"/>        </shell:ApplicationBar>    </phone:PhoneApplicationPage.ApplicationBar>
+
 
     <Grid x:Name="LayoutRoot" DataContext="{StaticResource DesignVM}" >
         <Grid.RowDefinitions>

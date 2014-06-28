@@ -95,5 +95,10 @@ namespace NuGetSearch
                 }
             }
         }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

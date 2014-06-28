@@ -146,9 +146,14 @@
     <Compile Include="ViewModels\Settings_Model.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\appbar\appbar.browser.png" />
     <Content Include="Assets\appbar\appbar.cog.png" />
     <Content Include="Assets\appbar\appbar.email.minimal.png" />
+    <Content Include="Assets\appbar\appbar.ie.png" />
     <Content Include="Assets\appbar\appbar.magnify.png" />
+    <Content Include="Assets\appbar\appbar.page.check.png" />
+    <Content Include="Assets\appbar\appbar.qr.png" />
+    <Content Include="Assets\appbar\appbar.refresh.png" />
     <Content Include="Assets\appbar\appbar.star.png" />
     <Content Include="Assets\NuGetSearch-300-Trans.png" />
     <Content Include="Assets\NuGetSearch-300.png" />

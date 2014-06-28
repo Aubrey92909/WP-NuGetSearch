@@ -37,7 +37,36 @@ namespace NuGetSearch
         }
 
 
+        private void BtnNuGetPage_Click(object sender, EventArgs e)
+        {
+            
 
+        }
+
+        private void MenuReportAbuse_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MenuContactOwners_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtnLicense_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtnProjectSite_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtnShareQR_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
