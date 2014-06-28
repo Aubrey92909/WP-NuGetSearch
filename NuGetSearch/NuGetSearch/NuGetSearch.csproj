@@ -146,6 +146,7 @@
     <Compile Include="ViewModels\Settings_Model.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\364px-NuGet.png" />
     <Content Include="Assets\appbar\appbar.browser.png" />
     <Content Include="Assets\appbar\appbar.cog.png" />
     <Content Include="Assets\appbar\appbar.email.minimal.png" />

@@ -50,7 +50,7 @@
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="21,0,21,0">
-            <StackPanel>
+            <StackPanel Canvas.ZIndex="1">
                 <TextBlock Text="NuGet Search for Windows Phone"
                            Margin="0,0,0,10"
                            FontFamily="Segoe WP"
@@ -81,18 +81,24 @@
                 <TextBlock FontSize="21.5"
                            TextWrapping="Wrap"
                            FontFamily="Segoe WP Light"
-                           Text="MVVM-Sidekick"/>
+                           Text="MVVM-Sidekick by Wayne"/>
 
                 <TextBlock FontSize="21.5"
                            TextWrapping="Wrap"
                            FontFamily="Segoe WP Light"
-                           Text="Windows Phone Toolkit"/>
+                           Text="Windows Phone Toolkit by Microsoft"/>
 
                 <TextBlock FontSize="21.5"
                            TextWrapping="Wrap"
                            FontFamily="Segoe WP Light"
-                           Text="Windows Phone Theme Manager"/>
+                           Text="Windows Phone Theme Manager by Jeff Wilcox"/>
             </StackPanel>
+            
+            <Image Source="Assets/364px-NuGet.png" 
+                   VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Right"
+                   Canvas.ZIndex="0"
+                   Height="250" Opacity="0.3"/>
         </Grid>
     </Grid>
 
