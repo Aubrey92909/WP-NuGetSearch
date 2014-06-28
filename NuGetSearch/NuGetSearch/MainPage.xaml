@@ -18,7 +18,15 @@
     xmlns:userControls="clr-namespace:NuGetSearch.UserControls">
     <FrameworkElement.Resources>
         <vm:MainPage_Model x:Key="DesignVM" />
+        <shell:ProgressIndicator x:Key="idk" 
+                             IsVisible="{Binding DataContext.IsUIBusy, ElementName=LayoutRoot}" 
+                             IsIndeterminate="{Binding DataContext.IsUIBusy, ElementName=LayoutRoot}"
+                             Text="{Binding DataContext.Message, ElementName=LayoutRoot}" />
     </FrameworkElement.Resources>
+
+    <shell:SystemTray.ProgressIndicator>
+        <Binding Source="{StaticResource idk}"/>
+    </shell:SystemTray.ProgressIndicator>
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
