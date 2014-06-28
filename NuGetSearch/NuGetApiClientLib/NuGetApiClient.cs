@@ -49,7 +49,7 @@ namespace NuGetApiClientLib
         }
 
 
-        public async Task<Response<IEnumerable<V2FeedPackage>>> GetDataAsync(string searchTerm, int pageIndex, bool includePreRelease = false)
+        public async Task<Response<IEnumerable<V2FeedPackageEx>>> GetDataAsync(string searchTerm, int pageIndex, bool includePreRelease = false)
         {
             try
             {
@@ -78,9 +78,9 @@ namespace NuGetApiClientLib
 
                 var taskFactory = new TaskFactory<IEnumerable<V2FeedPackage>>();
                 var result = await taskFactory.FromAsync(query.BeginExecute(null, null), query.EndExecute);
-                var packages = result.ToList();
+                var packages = result.Select(p => new V2FeedPackageEx(p)).ToList();
 
-                return new Response<IEnumerable<V2FeedPackage>>()
+                return new Response<IEnumerable<V2FeedPackageEx>>()
                 {
                     IsSuccess = true,
                     Item = packages
@@ -88,7 +88,7 @@ namespace NuGetApiClientLib
             }
             catch (Exception e)
             {
-                return new Response<IEnumerable<V2FeedPackage>>()
+                return new Response<IEnumerable<V2FeedPackageEx>>()
                 {
                     Message = e.Message
                 };

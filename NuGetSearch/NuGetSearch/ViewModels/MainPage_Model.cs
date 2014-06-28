@@ -35,36 +35,36 @@ namespace NuGetSearch.ViewModels
         static Func<bool> _IsMsDotNetDataInitializedDefaultValueFactory = () => { return default(bool); };
         #endregion
 
-        public ObservableCollection<V2FeedPackage> MostPopularPackages
+        public ObservableCollection<V2FeedPackageEx> MostPopularPackages
         {
             get { return _MostPopularPackagesLocator(this).Value; }
             set { _MostPopularPackagesLocator(this).SetValueAndTryNotify(value); }
         }
-        #region Property ObservableCollection<V2FeedPackage> MostPopularPackages Setup
-        protected Property<ObservableCollection<V2FeedPackage>> _MostPopularPackages = new Property<ObservableCollection<V2FeedPackage>> { LocatorFunc = _MostPopularPackagesLocator };
-        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackage>>> _MostPopularPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackage>>("MostPopularPackages", model => model.Initialize("MostPopularPackages", ref model._MostPopularPackages, ref _MostPopularPackagesLocator, _MostPopularPackagesDefaultValueFactory));
-        static Func<ObservableCollection<V2FeedPackage>> _MostPopularPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackage>); };
+        #region Property ObservableCollection<V2FeedPackageEx> MostPopularPackages Setup
+        protected Property<ObservableCollection<V2FeedPackageEx>> _MostPopularPackages = new Property<ObservableCollection<V2FeedPackageEx>> { LocatorFunc = _MostPopularPackagesLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackageEx>>> _MostPopularPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackageEx>>("MostPopularPackages", model => model.Initialize("MostPopularPackages", ref model._MostPopularPackages, ref _MostPopularPackagesLocator, _MostPopularPackagesDefaultValueFactory));
+        static Func<ObservableCollection<V2FeedPackageEx>> _MostPopularPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackageEx>); };
         #endregion
 
-        public ObservableCollection<V2FeedPackage> MicrosoftDotNetPackages
+        public ObservableCollection<V2FeedPackageEx> MicrosoftDotNetPackages
         {
             get { return _MicrosoftDotNetPackagesLocator(this).Value; }
             set { _MicrosoftDotNetPackagesLocator(this).SetValueAndTryNotify(value); }
         }
-        #region Property ObservableCollection<V2FeedPackage> MicrosoftDotNetPackages Setup
-        protected Property<ObservableCollection<V2FeedPackage>> _MicrosoftDotNetPackages = new Property<ObservableCollection<V2FeedPackage>> { LocatorFunc = _MicrosoftDotNetPackagesLocator };
-        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackage>>> _MicrosoftDotNetPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackage>>("MicrosoftDotNetPackages", model => model.Initialize("MicrosoftDotNetPackages", ref model._MicrosoftDotNetPackages, ref _MicrosoftDotNetPackagesLocator, _MicrosoftDotNetPackagesDefaultValueFactory));
-        static Func<ObservableCollection<V2FeedPackage>> _MicrosoftDotNetPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackage>); };
+        #region Property ObservableCollection<V2FeedPackageEx> MicrosoftDotNetPackages Setup
+        protected Property<ObservableCollection<V2FeedPackageEx>> _MicrosoftDotNetPackages = new Property<ObservableCollection<V2FeedPackageEx>> { LocatorFunc = _MicrosoftDotNetPackagesLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<V2FeedPackageEx>>> _MicrosoftDotNetPackagesLocator = RegisterContainerLocator<ObservableCollection<V2FeedPackageEx>>("MicrosoftDotNetPackages", model => model.Initialize("MicrosoftDotNetPackages", ref model._MicrosoftDotNetPackages, ref _MicrosoftDotNetPackagesLocator, _MicrosoftDotNetPackagesDefaultValueFactory));
+        static Func<ObservableCollection<V2FeedPackageEx>> _MicrosoftDotNetPackagesDefaultValueFactory = () => { return default(ObservableCollection<V2FeedPackageEx>); };
         #endregion
 
         public MainPage_Model()
         {
-            MostPopularPackages = new ObservableCollection<V2FeedPackage>();
-            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
+            MostPopularPackages = new ObservableCollection<V2FeedPackageEx>();
+            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackageEx>();
 
             if (IsInDesignMode)
             {
-                MostPopularPackages.Add(new V2FeedPackage()
+                MostPopularPackages.Add(new V2FeedPackageEx()
                 {
                     Summary = "Microsoft Hope Of Human! A quick brown fox jumped over the lazy dog.",
                     Title = "Microsoft.Humanity.Hope",
@@ -72,7 +72,7 @@ namespace NuGetSearch.ViewModels
                     DownloadCount = 8888
                 });
 
-                MostPopularPackages.Add(new V2FeedPackage()
+                MostPopularPackages.Add(new V2FeedPackageEx()
                 {
                     Summary = "Fuck the fucking fuckers.",
                     Title = "Linustd.Is.Adobe",
@@ -80,7 +80,7 @@ namespace NuGetSearch.ViewModels
                     DownloadCount = 250
                 });
 
-                MostPopularPackages.Add(new V2FeedPackage()
+                MostPopularPackages.Add(new V2FeedPackageEx()
                 {
                     Summary = "This is a fucking long text which is very long and you can not see it within one single fucking line. Why the text is this diao yang? Because I need to test if the UI is good when given such a long fucking text.",
                     Title = "Text.Is.So.Long",
@@ -88,7 +88,7 @@ namespace NuGetSearch.ViewModels
                     DownloadCount = 250
                 });
 
-                MostPopularPackages.Add(new V2FeedPackage()
+                MostPopularPackages.Add(new V2FeedPackageEx()
                 {
                     Summary = "hello world!",
                     Title = "Why.This.Package.Has.A.Long.Title",
@@ -108,8 +108,8 @@ namespace NuGetSearch.ViewModels
 
         public void ClearData()
         {
-            MostPopularPackages = new ObservableCollection<V2FeedPackage>();
-            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackage>();
+            MostPopularPackages = new ObservableCollection<V2FeedPackageEx>();
+            MicrosoftDotNetPackages = new ObservableCollection<V2FeedPackageEx>();
         }
 
         public async Task GetMostPopularPackages(int pageIndex = 1)
@@ -117,7 +117,7 @@ namespace NuGetSearch.ViewModels
             IsUIBusy = true;
             Message = "Getting Data...";
             var apiResponse = await NuGetSearcher.GetMostPopularPackagesAsync(pageIndex);
-            var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
+            var response = apiResponse as Response<IEnumerable<V2FeedPackageEx>>;
             if (response != null && response.IsSuccess)
             {
                 foreach (var v2FeedPackage in response.Item)
@@ -134,7 +134,7 @@ namespace NuGetSearch.ViewModels
             IsUIBusy = true;
             Message = "Getting Data...";
             var apiResponse = await NuGetSearcher.GetTopMicrosoftDotNetPackagesAsync(pageIndex);
-            var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
+            var response = apiResponse as Response<IEnumerable<V2FeedPackageEx>>;
             if (response != null && response.IsSuccess)
             {
                 foreach (var v2FeedPackage in response.Item)

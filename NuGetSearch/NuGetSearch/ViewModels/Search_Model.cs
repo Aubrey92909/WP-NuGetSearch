@@ -130,7 +130,7 @@ namespace NuGetSearch.ViewModels
                 IsUIBusy = true;
                 Message = "Getting Data...";
                 var apiResponse = await opt.SearchPackagesByTermAsync(Keyword, pageIndex);
-                var response = apiResponse as Response<IEnumerable<V2FeedPackage>>;
+                var response = apiResponse as Response<IEnumerable<V2FeedPackageEx>>;
                 if (response != null && response.IsSuccess)
                 {
                     foreach (var v2FeedPackage in response.Item)
