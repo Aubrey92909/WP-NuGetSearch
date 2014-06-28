@@ -67,6 +67,11 @@ namespace NuGetSearch
         {
             
         }
+
+        private void MenuShareEmail_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
