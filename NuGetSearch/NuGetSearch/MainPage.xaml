@@ -15,7 +15,8 @@
     shell:SystemTray.IsVisible="True"    
     xmlns:mvvm="clr-namespace:MVVMSidekick.Views;assembly=MVVMSidekick_Wp8"
     xmlns:vm="clr-namespace:NuGetSearch.ViewModels"
-    xmlns:userControls="clr-namespace:NuGetSearch.UserControls">
+    xmlns:userControls="clr-namespace:NuGetSearch.UserControls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
     <FrameworkElement.Resources>
         <vm:MainPage_Model x:Key="DesignVM" />
         <shell:ProgressIndicator x:Key="idk" 
@@ -23,6 +24,17 @@
                              IsIndeterminate="{Binding DataContext.IsUIBusy, ElementName=LayoutRoot}"
                              Text="{Binding DataContext.Message, ElementName=LayoutRoot}" />
     </FrameworkElement.Resources>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:SlideTransition Mode="SlideRightFadeIn" />
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:SlideTransition Mode="SlideLeftFadeIn" />
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
 
     <shell:SystemTray.ProgressIndicator>
         <Binding Source="{StaticResource idk}"/>
@@ -47,9 +59,9 @@
 
     <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{StaticResource DesignVM}">
 
-        <phone:Pivot>
+        <phone:Pivot LoadedPivotItem="MainPivot_OnLoadedPivotItem">
             <phone:Pivot.Title>
-                <TextBlock Text="NUGET SEARCH" FontSize="22" FontFamily="Segoe WP Light"/>
+                <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" FontSize="22" FontFamily="Segoe WP Light"/>
             </phone:Pivot.Title>
             
             <phone:Pivot.HeaderTemplate>

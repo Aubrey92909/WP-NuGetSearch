@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using MVVMSidekick.ViewModels;
 using NuGetApiClientLib.NuGetService;
-using NuGetSearch.ViewModels;
 
 namespace NuGetSearch.UserControls
 {
@@ -91,7 +84,7 @@ namespace NuGetSearch.UserControls
                         var package = e.Container.Content as V2FeedPackage;
                         if (null != package && package.Equals(source[source.Count -1]))
                         {
-                            var nextPageIndex = PageIndex++;
+                            var nextPageIndex = ++PageIndex;
                             Debug.WriteLine("Loading Page {0}", nextPageIndex);
 
                             if (LoadNextPage != null)

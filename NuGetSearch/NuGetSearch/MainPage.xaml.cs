@@ -1,4 +1,5 @@
-﻿using MVVMSidekick.Views;
+﻿using Microsoft.Phone.Controls;
+using MVVMSidekick.Views;
 using System;
 using NuGetSearch.ViewModels;
 
@@ -57,6 +58,11 @@ namespace NuGetSearch
         private void MenuReview_Click(object sender, EventArgs e)
         {
             Utils.GoToReview();
+        }
+
+        private void MainPivot_OnLoadedPivotItem(object sender, PivotItemEventArgs e)
+        {
+            
         }
     }
 }
