@@ -31,10 +31,10 @@ namespace NuGetSearch
 
         private void SearchResultPagedPackageList_OnSelectedPackageChanged(object sender, string packageId)
         {
-            var vm = ViewModel as MainPage_Model;
+            var vm = ViewModel as Search_Model;
             if (null != vm)
             {
-                var pkg = vm.MicrosoftDotNetPackages.FirstOrDefault(p => p.Id == packageId);
+                var pkg = vm.SearchResults.FirstOrDefault(p => p.Id == packageId);
                 NavigationService.Navigate(new Uri("/PackageDetail.xaml?id=" + packageId, UriKind.Relative), packageId, pkg);
             }
         }
