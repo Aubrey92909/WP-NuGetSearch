@@ -74,22 +74,22 @@
             </phone:Pivot.HeaderTemplate>
             
             <phone:PivotItem Header="{Binding Path=LocalizedResources.MostPopularTitle, Source={StaticResource LocalizedStrings}}" x:Name="PvtMostPopular" Style="{StaticResource PivotItemStyle}">
-                <ScrollViewer>
-                    <userControls:PagedPackageList MaxHeight="560" VerticalAlignment="Top"
+                <Grid>
+                    <userControls:PagedPackageList 
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding MostPopularPackages}" 
                 SelectedPackageChanged="MostPopularPagedPackageList_OnSelectedPackageChanged" 
                 LoadNextPage="MostPopularPagedPackageList_OnLoadNextPage" />
-                </ScrollViewer>
+                </Grid>
             </phone:PivotItem>
             <phone:PivotItem Header="{Binding Path=LocalizedResources.MicrosoftDotNetTitle, Source={StaticResource LocalizedStrings}}" x:Name="PvtMsDotNet" Style="{StaticResource PivotItemStyle}">
-                <ScrollViewer>
-                    <userControls:PagedPackageList MaxHeight="560" 
+                <Grid>
+                    <userControls:PagedPackageList  
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding MicrosoftDotNetPackages}" 
                 SelectedPackageChanged="MicrosoftDotNetPagedPackageList_OnSelectedPackageChanged" 
                 LoadNextPage="MicrosoftDotNetPagedPackageList_OnLoadNextPage" />
-                </ScrollViewer>
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

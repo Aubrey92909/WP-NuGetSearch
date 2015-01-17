@@ -29,7 +29,6 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="share with email..." Click="MenuShareEmail_Click" />
                 <shell:ApplicationBarMenuItem Text="report abuse..." Click="MenuReportAbuse_Click" />
                 <shell:ApplicationBarMenuItem Text="contact owners..." Click="MenuContactOwners_Click" />
             </shell:ApplicationBar.MenuItems>
@@ -46,10 +45,9 @@
                 Text="license" 
                 Click="BtnLicense_Click"/>
             <shell:ApplicationBarIconButton 
-                IconUri="/Assets/appbar/appbar.qr.png" 
-                IsEnabled="False"
-                Text="share qr" 
-                Click="BtnShareQR_Click"/>
+                IconUri="/Assets/appbar/appbar.email.minimal.png" 
+                Text="email" 
+                Click="BtnShareEmail_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

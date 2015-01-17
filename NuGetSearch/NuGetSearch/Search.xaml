@@ -66,13 +66,13 @@
                      Margin="-12,-10,-12,10"
                      Text="{Binding Keyword, Mode=TwoWay}"/>
             
-            <ScrollViewer Grid.Row="1">
-                <userControls:PagedPackageList Height="590" VerticalAlignment="Top"
+            <Grid Grid.Row="1">
+                <userControls:PagedPackageList 
                 VM="{StaticResource DesignVM}" 
                 PackageItemsSource="{Binding SearchResults}" 
                 SelectedPackageChanged="SearchResultPagedPackageList_OnSelectedPackageChanged" 
                 LoadNextPage="SearchResultPagedPackageList_OnLoadNextPage" />
-            </ScrollViewer>
+            </Grid>
         </Grid>
 
 

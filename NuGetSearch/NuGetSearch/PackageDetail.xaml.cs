@@ -126,11 +126,7 @@ namespace NuGetSearch
             }
         }
 
-        private void BtnShareQR_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void MenuShareEmail_Click(object sender, EventArgs e)
+        private void BtnShareEmail_Click(object sender, EventArgs e)
         {
             var vm = ViewModel as PackageDetail_Model;
             if (null != vm)

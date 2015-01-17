@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="58027.NuGetSearch" Publisher="CN=DB299AFD-CD90-4B49-8407-33F11AF0C784" Version="2.0.1.0" />
+  <Identity Name="58027.NuGetSearch" Publisher="CN=DB299AFD-CD90-4B49-8407-33F11AF0C784" Version="2.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="55fb0b00-0391-4ed7-b329-95ae96b43927" PhonePublisherId="18afdfc8-59ea-41fd-bfdc-36ea49c9ac88" />
   <Properties>
     <DisplayName>NuGet Search</DisplayName>

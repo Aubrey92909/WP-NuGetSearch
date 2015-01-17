@@ -249,10 +249,6 @@
       <Project>{128d5730-dfb2-4531-8252-2c2203c6626b}</Project>
       <Name>NuGetApiClientLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NuGetSearch.QRCode\NuGetSearch.QRCode.csproj">
-      <Project>{485f7a5a-b7ab-4cb5-8faa-465e7f84cc49}</Project>
-      <Name>NuGetSearch.QRCode</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

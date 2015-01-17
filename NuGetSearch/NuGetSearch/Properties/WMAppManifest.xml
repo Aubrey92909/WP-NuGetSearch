@@ -4,8 +4,8 @@
   <Languages xmlns="">
     <Language code="en-US" />
   </Languages>
-  <App xmlns="" ProductID="{55fb0b00-0391-4ed7-b329-95ae96b43927}" Title="NuGet Search" RuntimeType="Silverlight" Version="2.0.1" Genre="apps.normal" Author="汪宇杰" Description="Search Packages on NuGet.org" Publisher="汪宇杰" PublisherID="{6b431416-291c-4f15-9ca9-3a3f4ae11754}">
-    <IconPath IsRelative="true" IsResource="false">Assets\NuGetSearch-300.png</IconPath>
+  <App xmlns="" ProductID="{55fb0b00-0391-4ed7-b329-95ae96b43927}" Title="NuGet Search" RuntimeType="Silverlight" Version="2.1.0" Genre="apps.normal" Author="汪宇杰" Description="Search Packages on NuGet.org" Publisher="汪宇杰" PublisherID="{6b431416-291c-4f15-9ca9-3a3f4ae11754}">
+    <IconPath IsRelative="true" IsResource="false">Assets\NuGetSearch-300-Trans.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
