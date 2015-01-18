@@ -8,6 +8,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Favorite" Label="review" Click="BtnReview_Click" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
@@ -23,13 +31,39 @@
 
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="page title" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            <TextBlock Text="NUGET SEARCH" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="about" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <StackPanel Canvas.ZIndex="1">
+                <TextBlock Text="NuGet Search for Windows Phone"
+                           Margin="0,0,0,10"
+                           FontSize="22"/>
 
+                <TextBlock FontSize="21.5"
+                           Foreground="#666"
+                           Margin="0,0,0,20"
+                           TextWrapping="Wrap"
+                           Text="This app is not nuget.org official app. It provides you the ability to search nuget.org without opening IE on your Windows Phone."/>
+
+                <TextBlock Text="Author"
+                           Margin="0,0,0,10"
+                           FontSize="22"/>
+
+                <TextBlock FontSize="21.5"
+                           Foreground="#666"
+                           Margin="0,0,0,20"
+                           TextWrapping="Wrap"
+                           Text="Edi Wang (webmaster of http://edi.wang). professional ASP.NET developer, newbie in Windows Phone."/>
+            </StackPanel>
+
+            <Image Source="Assets/364px-NuGet.png" 
+                   VerticalAlignment="Bottom" 
+                   HorizontalAlignment="Right"
+                   Canvas.ZIndex="0"
+                   Height="250" Opacity="0.3"/>
         </Grid>
     </Grid>
 </Page>

@@ -8,17 +8,53 @@
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
-        <ListView ItemsSource="{Binding Items}"
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Refresh" Label="refresh" />
+                <AppBarButton Icon="Find" Label="search" Click="BtnSearch_Click" />
+                <AppBarButton Icon="Setting" Label="settings" Click="BtnSettings_Click" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="about" Click="MenuAbout_Click" />
+                <AppBarButton Label="review..." Click="MenuReview_Click" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Pivot>
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" 
+                               FontSize="50"
+                               FontFamily="Segoe WP" 
+                               FontWeight="SemiLight" />
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+            <PivotItem Header="Most Popular">
+                <ListView ItemsSource="{Binding Items}"
                   IncrementalLoadingTrigger="Edge"
                   IncrementalLoadingThreshold="1">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding}" FontSize="40" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding}" FontSize="40" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Microsoft &amp; .NET">
+
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
