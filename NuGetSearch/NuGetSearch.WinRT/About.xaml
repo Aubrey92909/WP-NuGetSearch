@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path=About}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.BottomAppBar>
@@ -30,14 +31,15 @@
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="NUGET SEARCH" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="about" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        <StackPanel Grid.Row="0" Margin="19,10,0,0">
+            <TextBlock Text="about" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" FontFamily="Segoe WP"
+              FontWeight="SemiLight"/>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <StackPanel Canvas.ZIndex="1">
+                <TextBlock Text="{Binding Version}" FontSize="18" FontWeight="Bold" />
                 <TextBlock Text="NuGet Search for Windows Phone"
                            Margin="0,0,0,10"
                            FontSize="22"/>

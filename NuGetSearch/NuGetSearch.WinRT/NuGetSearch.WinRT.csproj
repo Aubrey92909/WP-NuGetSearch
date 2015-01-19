@@ -92,6 +92,7 @@
     <Compile Include="Common\PagingTestModels.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Core\AppSettings.cs" />
     <Compile Include="Core\IncrementalSource.cs" />
     <Compile Include="Core\IPagedResponse.cs" />
     <Compile Include="Core\IPagedSource.cs" />
@@ -112,6 +113,7 @@
     </Compile>
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,33 +6,36 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Settings}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.BottomAppBar>
         <CommandBar ClosedDisplayMode="Minimal" />
     </Page.BottomAppBar>
-    
+
     <Grid x:Name="LayoutRoot">
-
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="settings" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        <StackPanel Grid.Row="0" Margin="19,10,0,0">
+            <TextBlock Text="settings" 
+                       Margin="0,-6.5,0,26.5" 
+                       Style="{ThemeResource HeaderTextBlockStyle}" 
+                       FontFamily="Segoe WP"
+                       FontWeight="SemiLight"/>
         </StackPanel>
 
-        <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <ToggleSwitch VerticalAlignment="Top" Header="Include Pre-Release" OnContent="Include" OffContent="Exclude" />
+            <StackPanel>
+                <ToggleSwitch VerticalAlignment="Top" 
+                              IsOn="{Binding AppSettings.IncludePrerelease, Mode=TwoWay}"
+                              Header="Include Prerelease" 
+                              OnContent="Include" 
+                              OffContent="Exclude" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

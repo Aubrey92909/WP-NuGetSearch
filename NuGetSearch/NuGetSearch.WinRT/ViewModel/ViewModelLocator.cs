@@ -43,6 +43,8 @@ namespace NuGetSearch.WinRT.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<AboutViewModel>();
+            SimpleIoc.Default.Register<SettingsViewModel>();
         }
 
         public MainViewModel Main
@@ -50,6 +52,22 @@ namespace NuGetSearch.WinRT.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public AboutViewModel About
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AboutViewModel>();
+            }
+        }
+
+        public SettingsViewModel Settings
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SettingsViewModel>();
             }
         }
         
