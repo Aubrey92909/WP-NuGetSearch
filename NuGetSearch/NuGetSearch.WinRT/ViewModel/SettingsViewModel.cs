@@ -18,7 +18,6 @@ namespace NuGetSearch.WinRT.ViewModel
             set { _appSettings = value; RaisePropertyChanged(); }
         }
         
-
         public SettingsViewModel()
         {
             AppSettings = new AppSettings();

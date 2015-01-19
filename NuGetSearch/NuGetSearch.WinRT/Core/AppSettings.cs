@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Windows.Storage;
 
 namespace NuGetSearch.WinRT.Core
 {
     public class AppSettings : INotifyPropertyChanged
     {
+        private const string IncludePrereleaseKeyName = "IncludePrereleaseSettings";
+
         public bool IncludePrerelease
         {
             get
             {
-                return ReadSettings<bool>("IncludePrerelease");
+                return ReadSettings<bool>(IncludePrereleaseKeyName);
             }
             set
             {
-                SaveSettings("IncludePrerelease", value);
-                NotifyPropertyChanged("IncludePrerelease");
+                SaveSettings(IncludePrereleaseKeyName, value);
+                NotifyPropertyChanged();
             }
         }
 
@@ -46,7 +44,7 @@ namespace NuGetSearch.WinRT.Core
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyPropertyChanged(string propName)
+        protected void NotifyPropertyChanged([CallerMemberName]string propName = "")
         {
             if (PropertyChanged != null)
             {
